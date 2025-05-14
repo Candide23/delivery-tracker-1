@@ -14,36 +14,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_14_185451) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "actors", force: :cascade do |t|
-    t.string "name"
-    t.date "dob"
-    t.text "bio"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "boards", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "characters", force: :cascade do |t|
-    t.integer "movie_id"
-    t.integer "actor_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.integer "author_id"
-    t.string "body"
-    t.integer "venue_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "deliveries", force: :cascade do |t|
     t.integer "user_id"
@@ -55,34 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_14_185451) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "directors", force: :cascade do |t|
-    t.string "name"
-    t.date "dob"
-    t.text "bio"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
-  create_table "movies", force: :cascade do |t|
-    t.string "title"
-    t.integer "year"
-    t.integer "duration"
-    t.text "description"
-    t.string "image"
-    t.integer "director_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.date "expires_on"
-    t.integer "board_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -97,12 +40,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_14_185451) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "venues", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "neighborhood"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end
